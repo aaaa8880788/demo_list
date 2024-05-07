@@ -1,4 +1,4 @@
-class FsVirtuallist {
+class myVirtuallist {
   constructor(containerSelector, listSelector) {
     this.state = {
       dataSource: [], // 模拟数据源
@@ -77,7 +77,7 @@ class FsVirtuallist {
     this.computedEndIndex();
     this.computedRenderList();
     this.computedScrollStyle();
-    const template = this.renderList.map((i) => `<div class="fs-virtuallist-item">${i}</div>`).join("");
+    const template = this.renderList.map((i) => `<div class="virtuallist-item">${i}</div>`).join("");
     const { height, transform } = this.scrollStyle;
     this.oList.innerHTML = template;
     this.oList.style.height = height;
@@ -92,4 +92,4 @@ class FsVirtuallist {
 
 }
 
-export default FsVirtuallist
+export default myVirtuallist

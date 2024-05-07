@@ -32,7 +32,7 @@
 }
 
 /* 作为虚拟列表组件宽高由父组件决定，注意这里需要保证垂直方向有滚动条 */
-.fs-virtuallist-container {
+.virtuallist-container {
   width: 100%;
   height: 100%;
   overflow-y: auto;
@@ -41,12 +41,12 @@
 }
 
 /* list 高度会用 JS 设置动态样式 */
-.fs-virtuallist-list {
+.virtuallist-list {
   width: 100%;
 }
 
 /* item 固定高度即可，其他样式仅为了做展示 */
-.fs-virtuallist-item {
+.virtuallist-item {
   width: 100%;
   height: 100px;
   box-sizing: border-box;

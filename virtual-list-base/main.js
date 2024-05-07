@@ -1,4 +1,4 @@
 import "./static/index.scss"
-import FsVirtuallist from './utils/virtual'
-const fs = new FsVirtuallist(".fs-virtuallist-container", ".fs-virtuallist-list")
-fs.init()
+import myVirtuallist from './utils/virtual'
+const vl = new myVirtuallist(".virtuallist-container", ".virtuallist-list")
+vl.init()

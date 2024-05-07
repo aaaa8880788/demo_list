@@ -139,7 +139,7 @@ class FsVirtuallist {
   }
 
   addData() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 20; i++) {
       this.state.dataSource.push({
         id: this.state.dataSource.length + 1,
         index: this.state.dataSource.length,
@@ -162,14 +162,17 @@ class FsVirtuallist {
     let left = 0,
     right = list.length - 1,
     templateIndex = -1;
-    while (left < right) {
+    while (left <= right) {
       const midIndex = Math.floor((left + right) / 2);
       const midValue = list[midIndex].bottom;
-      if (midValue === value) return midIndex + 1;
-      else if (midValue < value) left = midIndex + 1;
-      else if (midValue > value) {
-        if (templateIndex === -1 || templateIndex > midIndex) templateIndex = midIndex;
-        right = midIndex;
+      if (midValue === value) {
+        return midIndex + 1;
+      }else if (midValue < value){
+        left = midIndex + 1;
+        templateIndex = midIndex
+      }else if (midValue > value) {
+        right = midIndex - 1;
+        templateIndex = midIndex === 0 ? midIndex : midIndex- 1
       }
     }
     return templateIndex;
