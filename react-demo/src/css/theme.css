@@ -1,0 +1,8 @@
+:root {
+  --primary-color:  #2264FF;
+  --dark-bule: #2365FF;
+  --light-bule: #467DFF;
+  --light-blue-one: #5588FF;
+  --menu-active-bg: rgba(255, 255, 255, 0.15);
+  --text-color: rgba(255, 255, 255, 0.85);
+}
