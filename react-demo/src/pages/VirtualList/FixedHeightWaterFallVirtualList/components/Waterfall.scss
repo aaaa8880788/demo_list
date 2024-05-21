@@ -1,0 +1,23 @@
+@import "@/css/methods.scss";
+.Waterfall {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /*添加滚动条样式*/
+  @include scrollBarStyle(#ccc, 10px);
+  .Waterfall-list {
+    position: relative;
+    width: 100%;
+    .Waterfall-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      box-sizing: border-box;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

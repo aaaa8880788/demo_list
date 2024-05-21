@@ -12,3 +12,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.global-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .global-container {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+}
+.ant-spin-nested-loading {
+  height: 100%;
+}
+

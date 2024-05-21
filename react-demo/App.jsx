@@ -61,23 +61,23 @@ function App(){
                     </div>
                     <Menus />
                 </Sider>
-                <Content
+                <Content 
                     style={{
-                        margin: 0,
-                        padding: 0,
-                        height: 'calc(100vh - 55px)'
+                        overflow: 'auto',
+                        height: '100vh',
                     }}>
                     <Breadcrumbs bg={colorBgContainer} />
                     <Content
                         style={{
                             margin: 0,
-                            // padding: 16,
-                            overflowY: 'auto',
-                            overflowX: 'hidden',
-                            height: 'calc(100% - 39px)',
+                            padding: 16,
+                            backgroundColor: '#f5f5f5',
+                            height: 'calc(100% - 40px)',
                         }}>
                         <Suspense fallback={<div style={{ textAlign: 'center', marginTop: 200 }}>loading...</div>}>
-                            {routes}
+                            <div className="content-container">
+                                {routes}
+                            </div>
                         </Suspense>
                     </Content>
                 </Content>

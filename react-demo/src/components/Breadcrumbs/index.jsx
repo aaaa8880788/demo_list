@@ -21,7 +21,7 @@ const getMenuTitle = (keys) => {
   let menus = flattenTree(routers)
   let result = [
     {
-      href: '/monitor/bigscreen',
+      href: '/',
       title: <HomeOutlined />,
     },
   ]
@@ -54,19 +54,11 @@ const Breadcrumbs = (props) => {
 
   useEffect(() => {
     let keys = location.pathname.split('/')
+    console.log("location-----", location);
+    console.log("keys-----", keys);
     keys.shift()
     keys[0] = '/' + keys[0]
-    const len = keys.length
-    // -------------隐藏二级以上菜单-------------
-    // if (len < 3) {
-
-    // }
-    if (len < 2) {
-      setShow(false)
-    } else {
-      setShow(true)
-    }
-    // -------------隐藏二级以上菜单-------------
+    console.log("keys-----", keys);
     const list = getMenuTitle(keys)
     setItems(list)
   }, [location.pathname])

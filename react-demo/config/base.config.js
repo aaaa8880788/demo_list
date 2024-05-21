@@ -43,7 +43,7 @@ module.exports = {
       },
       {
         // 处理图片资源
-        test: /\.(jpg|png|gif)$/,
+        test: /\.(jpg|png|gif|GIF)$/,
         loader: 'url-loader', // 只有一个loader可以这样写
         options: { // 对loader进行配置
           limit: 8 * 1024, // 图片小于8kb，就转成base64

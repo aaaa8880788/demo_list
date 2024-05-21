@@ -1,0 +1,22 @@
+.BaseList {
+  width: 500px;
+  height: 100%;
+  overflow: auto;
+  margin: 0 auto;
+  .virtual-container {
+    
+    height: 100%;
+    overflow: auto;
+    .virtual-list {
+      .virtual-item {
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
