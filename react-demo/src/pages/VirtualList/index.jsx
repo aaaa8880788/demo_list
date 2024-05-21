@@ -35,6 +35,7 @@ const Virtual = () => {
   return (
     <div className="virtual">
       <Tabs 
+        destroyInactiveTabPane
         centered
         className='virtual-tabs'
         defaultActiveKey="FixedHeightWaterFallVirtualList" 

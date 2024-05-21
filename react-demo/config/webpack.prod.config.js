@@ -1,6 +1,7 @@
+const path = require('path');
 const { merge } = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HTMLWebpackPlugin = require('html-webpack-plugin'); // 引入html-webpack-plugin
 const baseConfig = require("./base.config");
 
 module.exports = merge(baseConfig, {
@@ -8,7 +9,7 @@ module.exports = merge(baseConfig, {
 	module: {
 		rules: [
 			{
-				test: /.css$/,
+				test: /\.css$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
@@ -21,7 +22,7 @@ module.exports = merge(baseConfig, {
 				],
 			},
 			{
-				test: /.less$/,
+				test: /\.less$/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					{
@@ -54,6 +55,10 @@ module.exports = merge(baseConfig, {
     new HTMLWebpackPlugin({
       filename: 'index.html', // 生成的文件名，其实默认就是index.html
       template: path.resolve(__dirname, '../public/index.html'), // 引用的模板文件地址 
-    }) // 使用HTMLWebpackPlugin
+    }), // 使用HTMLWebpackPlugin
+		new MiniCssExtractPlugin({
+			filename: 'css/[name].css',
+      chunkFilename: 'css/[name]-[hash].css',
+		})
   ]
 });

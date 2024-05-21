@@ -53,18 +53,20 @@ function WaterFallList(){
       state.column = 5;
     } else if(width > 1000 && width <= 1200) {
       state.column = 4;
-    } else {
+    } else if(width > 800 && width <= 1000) {
       state.column = 3;
+    } else {
+      state.column = 2;
     }
     setDataState(state)
   };
 
   const handleResize = debounce(() => {
-    console.log('wrapperRef.current.clientWidth------', wrapperRef.current.clientWidth);
     changeColumn(wrapperRef.current.clientWidth)
   })
 
   useEffect(() => {
+    changeColumn(wrapperRef.current.clientWidth)
     window.addEventListener("resize", handleResize)
     return () => {
       window.removeEventListener("resize", handleResize)
