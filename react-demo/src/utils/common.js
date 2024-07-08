@@ -21,6 +21,20 @@ function debounce(fn, delay = 300) {
     }, delay);
   };
 }
+
+// 节流
+function throttle(fn, delay){
+  let timer = null;
+  return function() {
+    let context = this;
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+      fn.apply(context, arguments);
+    }, delay);
+  }
+}
  
 function useNextTick() {
   const callbacks = useRef([]);
@@ -39,4 +53,4 @@ function useNextTick() {
 }
  
 
-export { rafThrottle, debounce };
+export { rafThrottle, debounce, throttle };

@@ -11,6 +11,13 @@ const routes = [
     icon: <MenuIcon src={IconHome} />,
     element: Layout('/VirtualList'),
   },
+  {
+    key: '/Three',
+    path: '/Three',
+    label: 'Three',
+    icon: <MenuIcon src={IconHome} />,
+    element: Layout('/Three'),
+  },
   // 路由重定向
   {
     path: '*',

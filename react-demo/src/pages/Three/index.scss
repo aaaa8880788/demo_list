@@ -1,0 +1,17 @@
+.Three {
+  width: 100%;
+  height: 100%;
+  .Three-tabs {
+    height: 100%;
+    width: 100%;
+    .ant-tabs-content-holder {
+      height: calc(100% - 46px);
+      overflow: auto;
+      .ant-tabs-content, .ant-tabs-tabpane {
+        height: 100%;
+        width: 100%;
+        
+      }
+    }
+  }
+}
