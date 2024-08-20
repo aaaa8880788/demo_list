@@ -2,7 +2,6 @@ import React, { useRef, useEffect} from 'react';
 import * as THREE from 'three';
 import { OrbitControls} from 'three/examples/jsm/controls/OrbitControls';
 import mitt from 'mitt'
-import { throttle } from '@/utils/common'
 export default function() {
   const demo1 = useRef(null);
   const canvasRef = useRef(null);
@@ -70,6 +69,12 @@ export default function() {
     camera.position.set(0, 10, 20);
   }
 
+  // 初始化负责器
+  const initHelper = () => {
+    const axesHelper = new THREE.AxesHelper(5);
+    sceneRef.current.add(axesHelper);
+  }
+
   // 初始化摄像机控制器
   const initControls = () => {
     // 添加交互
@@ -78,9 +83,7 @@ export default function() {
     controls.screenSpacePanning = false; // 定义当平移的时候摄像机的位置将如何移动。如果为true，摄像机将在屏幕空间内平移。 否则，摄像机将在与摄像机向上方向垂直的平面中平移。
     controls.enableDamping = true; // 设置带阻尼的惯性
     controls.dampingFactor = 0.05; // 设置阻尼系数
-    controls.autoRotate = true;
-    
-    // controls.update();
+    // controls.autoRotate = true; // 自动旋转
   }
 
   // 初始化立方体
@@ -88,15 +91,16 @@ export default function() {
     const cube = new THREE.BoxGeometry(2, 2, 2);
     const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x44aa88 });
     const cubeMesh = new THREE.Mesh(cube, cubeMaterial);
-    sceneRef.current.add(cubeMesh);
+    const parentCubeMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const parentCubeMesh = new THREE.Mesh(cube, parentCubeMaterial);
+    parentCubeMesh.position.set(-3, 0, 0);
+    cubeMesh.position.set(3, 0, 0);
+    parentCubeMesh.add(cubeMesh);
+    sceneRef.current.add(parentCubeMesh);
   }
 
   // 初始化环境光源
   const initAmbientLight = () => {
-    // 添加光源 - 环境光
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6)
-    // sceneRef.current.add(ambientLight)
-
     // 添加光源 - 平行光
     const directionalLight = new THREE.DirectionalLight(0xffffff)
     directionalLight.position.set(0, 10, 10);
@@ -132,6 +136,7 @@ export default function() {
     initRenderer().then(res => {
       initScene();
       initCamera();
+      initHelper();
       initControls();
       initAmbientLight();
       initCube();
