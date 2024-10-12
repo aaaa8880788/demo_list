@@ -23,7 +23,7 @@
     "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "^1.75.0",
+    "sass": "^1.79.5",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "url-loader": "^4.1.1",
@@ -36,6 +36,7 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^5.17.4",
+    "file-loader": "^6.2.0",
     "image-webpack-loader": "^8.1.0",
     "three": "^0.164.1"
   }
