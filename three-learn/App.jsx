@@ -1,5 +1,5 @@
 import React from 'react';
-import "./App.scss";
+import "./App.css";
 import Demo1 from "@/pages/01-基础入门";
 import Demo2 from "@/pages/02-光源";
 import Demo3 from "@/pages/03-basic";
